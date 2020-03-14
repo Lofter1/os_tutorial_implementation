@@ -1,6 +1,7 @@
+; infite loop. First few bytes of our boot sector
 loop:
 	jmp loop
 
-times 510-($-$$) db 0 ;write 0 510 times minus previous code
+times 510-($-$$) db 0 ; write a lot of zeros into the remaining sector, except the last two bytes
 
-dw 0xaa55 ;write 55AA at the end
+dw 0xaa55 ; write 55 AA at the end of the sector
